@@ -68,26 +68,27 @@ var right;
 Patches.setStringValue("equation", equation);
 Patches.setStringValue("x", x);
 Patches.setStringValue("y", y);
-//Scene.root.find("equation").text = equation;
+Scene.root.find("equation").text = equation;
 if (choice == 0)
 {
   left = options[0];
   right = options[1];
-  //Scene.root.find("option1").text = "" + options[0] + "";
-  //Scene.root.find("option2").text = "" + options[1] + "";
+  Scene.root.find("option1").text = "" + options[0] + "";
+  Scene.root.find("option2").text = "" + options[1] + "";
 }
 else
 {
   right = options[0];
   left = options[1];
-  //Scene.root.find("option1").text = "" + options[1] + "";
-  //Scene.root.find("option2").text = "" + options[0] + "";
+  Scene.root.find("option1").text = "" + options[1] + "";
+  Scene.root.find("option2").text = "" + options[0] + "";
 }
 Patches.setStringValue("left", left);
 Patches.setStringValue("right", right);
 Diagnostics.log(equation);
 Diagnostics.log(x);
 Diagnostics.log(y);
+
 
 // Available modules include (this is not a complete list):
 // var Scene = require('Scene');
