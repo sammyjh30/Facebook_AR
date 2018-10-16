@@ -52,8 +52,8 @@ function setY(x)
     out = randomDecimal(parseInt(x) - 5, parseInt(x) + 5).toFixed(2);
   else
     out = randomNumber(parseInt(x) - 5, parseInt(x) + 5).toFixed(0);
-  if (out == x)
-    out ++;
+  //if (out == x)
+    //out++;
   return out;
 }
 
@@ -62,6 +62,8 @@ var x = setX(equation);
 var y = setY(x);
 var options = [x, y];
 var choice = randomNumber(0, 2);
+var left;
+var right;
 
 Patches.setStringValue("equation", equation);
 Patches.setStringValue("x", x);
@@ -69,14 +71,20 @@ Patches.setStringValue("y", y);
 Scene.root.find("equation").text = equation;
 if (choice == 0)
 {
+  left = options[0];
+  right = options[1];
   Scene.root.find("option1").text = "" + options[0] + "";
   Scene.root.find("option2").text = "" + options[1] + "";
 }
 else
 {
+  right = options[0];
+  left = options[1];
   Scene.root.find("option1").text = "" + options[1] + "";
   Scene.root.find("option2").text = "" + options[0] + "";
 }
+Patches.setStringValue("left", left);
+Patches.setStringValue("right", right);
 Diagnostics.log(equation);
 Diagnostics.log(x);
 Diagnostics.log(y);
