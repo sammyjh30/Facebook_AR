@@ -8,6 +8,11 @@ function randomNumber(min, max)
     return Math.floor((Math.random() * (max - min) + min));
 }
 
+function randomDecimal(min, max)
+{
+    return (Math.random() * (max - min) + min);
+}
+
 function equation()
 {
   var oper = ['+', '-', 'x', '÷'];
@@ -42,7 +47,13 @@ function setX(equation)
 
 function setY(x)
 {
-  var out = randomNumber(parseInt(x) - 5, parseInt(x) + 5);
+  var out;
+  if (arr[1] == '÷')
+    out = randomDecimal(parseInt(x) - 5, parseInt(x) + 5).toFixed(2);
+  else
+    out = randomNumber(parseInt(x) - 5, parseInt(x) + 5).toFixed(0);
+  if (out == x)
+    out ++;
   return out;
 }
 
@@ -54,7 +65,7 @@ var choice = randomNumber(0, 2);
 
 Patches.setStringValue("equation", equation);
 Patches.setStringValue("x", x);
-Patches.setScalarValue("y", y);
+Patches.setStringValue("y", y);
 Scene.root.find("equation").text = equation;
 if (choice == 0)
 {
